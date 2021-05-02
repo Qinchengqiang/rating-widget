@@ -1,5 +1,33 @@
 * {
   text-align: center;
 }
+* .widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  color: #343a40;
+}
+* .widget .star .star-color {
+  color: #8b939b;
+}
+* .widget .star .star-logo {
+  font-size: 2.5rem;
+}
+* .widget .star .star-logo :hover {
+  cursor: pointer;
+}
+* .widget .star .first-star-active {
+  color: #ef950c !important;
+}
+* .textBox {
+  border-radius: 3px;
+  background-color: #f6f5f3;
+}
+* .textBox .check-logo,
+* .textBox .warn-logo {
+  font-size: 2rem;
+  margin: auto 1rem auto 0;
+}
 
 /*# sourceMappingURL=ratingWidget.css.map */

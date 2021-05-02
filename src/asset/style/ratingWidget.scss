@@ -1,3 +1,41 @@
 * {
   text-align: center;
+
+  .widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    color: #343a40;
+
+    .star {
+      .star-color {
+        color: #8b939b;
+      }
+
+      .star-logo {
+        font-size: 2.5rem;
+
+        :hover {
+          cursor: pointer;
+        }
+      }
+
+      .first-star-active {
+        color: #ef950c !important;
+      }
+    }
+  }
+
+  .textBox {
+    border-radius: 3px;
+    background-color: #f6f5f3;
+
+    .check-logo,
+    .warn-logo {
+      font-size: 2rem;
+      margin: auto 1rem auto 0;
+    }
+  }
 }
+
