@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from '../asset/img/logo.svg';
+import '../asset/style/App.css';
+import {Link} from 'react-router-dom';
 
 function App() {
   return (
@@ -7,16 +8,14 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          click the link to see demo
         </p>
-        <a
+        <Link
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          to="/main"
         >
-          Learn React
-        </a>
+          rating widget
+        </Link>
       </header>
     </div>
   );
