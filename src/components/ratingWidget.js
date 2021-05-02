@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../asset/style/ratingWidget.css';
-
+import {FormattedMessage} from "react-intl";
 
 export const RatingWidget = ({tittle, defaultStars}) => {
     const [activeStars, setActiveStars] = useState(0);
@@ -44,7 +44,11 @@ export const RatingWidget = ({tittle, defaultStars}) => {
                     )}
                 </div>
                 {defaultStars ? <div className='m-2'>
-                    <h6 className='text-secondary'>Default {defaultStars} stars</h6>
+                    <h6 className='text-secondary'>
+                        <FormattedMessage id="ratingDefaultStart"/>
+                        {defaultStars}
+                        <FormattedMessage id="ratingDefaultEnd"/>
+                    </h6>
                 </div> : <></>}
 
             </div>
@@ -54,13 +58,15 @@ export const RatingWidget = ({tittle, defaultStars}) => {
                         <span className='check-logo'>
                             <i className="fa fa-check-circle"></i>
                         </span>
-                        Thanks! You rated this {activeStars} stars.
+                        <FormattedMessage id="ratingCheckStart"/>
+                        {activeStars}
+                        <FormattedMessage id="ratingCheckEnd"/>
                     </h5> :
                     <h5 className='text-warning'>
                         <span className='warn-logo'>
                             <i className="fa fa-exclamation-circle"></i>
                         </span>
-                        Please rate by choosing stars
+                        <FormattedMessage id="ratingWarn"/>
                     </h5>
                 }
             </div>
