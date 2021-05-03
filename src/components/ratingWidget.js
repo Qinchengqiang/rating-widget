@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../asset/style/ratingWidget.css';
 import {FormattedMessage} from "react-intl";
 
-export const RatingWidget = ({tittle, defaultStars}) => {
+export const RatingWidget = ({tittle, defaultStars, setStars}) => {
     const [activeStars, setActiveStars] = useState(0);
     const [onMouseStar, setOnMouseStar] = useState(0);
     const [choose, setChoose] = useState(false);
@@ -10,19 +10,22 @@ export const RatingWidget = ({tittle, defaultStars}) => {
     const setSelect = (value) => {
         if (!choose) {
             setActiveStars(value);
+            setStars(value);
             setChoose(true);
         }
         if (choose) {
             setActiveStars(value);
+            setStars(value);
         }
     }
 
     useEffect(() => {
         if (defaultStars) {
             setActiveStars(defaultStars);
+            setStars(defaultStars);
             setChoose(true);
         }
-    }, [defaultStars])
+    }, [defaultStars, setStars])
 
     return (
         <>
@@ -73,3 +76,17 @@ export const RatingWidget = ({tittle, defaultStars}) => {
         </>
     );
 };
+
+export function useRatingWidget() {
+    const [stars, setStars] = React.useState(0)
+
+    return [
+        // the first arg is the state
+        stars,
+
+        // the second arg is a fn that allows you to safely set its state
+        (chooseStar) => {
+            setStars(chooseStar);
+        },
+    ]
+}

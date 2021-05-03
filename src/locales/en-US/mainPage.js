@@ -1,9 +1,10 @@
 const mainPage = {
     mainTitle: 'Rating Widget Demo',
     mainLanguage: 'Language',
-    mainRatingTitle1: 'Rating Widget 1',
-    mainRatingTitle2: 'Rating Widget 2',
-    mainRatingTitle3: 'Rating Widget 3',
+    mainRatingTitle1: 'First Rating Widget',
+    mainRatingTitle2: 'Second Rating Widget',
+    mainRatingTitle3: 'Third Rating Widget',
+    mainResults: 'Here to show rating results gotten from 3 widget components',
 };
 
 export default mainPage;

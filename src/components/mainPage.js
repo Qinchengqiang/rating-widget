@@ -3,7 +3,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-import {RatingWidget} from './ratingWidget';
+import {RatingWidget, useRatingWidget} from './ratingWidget';
 
 import {FormattedMessage, IntlProvider} from 'react-intl';
 
@@ -28,9 +28,18 @@ const MainPage = () => {
         setOpen(true);
     };
 
+    // set 3 rating widgets
     const title_one = (<FormattedMessage id="mainRatingTitle1"/>);
     const title_two = (<FormattedMessage id="mainRatingTitle2"/>);
     const title_three = (<FormattedMessage id="mainRatingTitle3"/>);
+
+    const defaultStars_first = 0;
+    const defaultStars_second = false;
+    const defaultStars_third = 2;
+
+    const [firstStars, setFirstStars] = useRatingWidget(defaultStars_first);
+    const [secondStars, setSecondStars] = useRatingWidget(defaultStars_second);
+    const [thirdStars, setThirdStars] = useRatingWidget(defaultStars_third);
 
     return (
         <IntlProvider messages={language} locale='en'>
@@ -57,11 +66,17 @@ const MainPage = () => {
                             </Select>
                         </FormControl>
                     </div>
+                    <div className='mt-4'>
+                        <h5><FormattedMessage id="mainResults"/></h5>
+                        <p>{title_one} : {firstStars}</p>
+                        <p>{title_two} : {secondStars}</p>
+                        <p>{title_three} : {thirdStars}</p>
+                    </div>
                 </div>
                 <div>
-                    <RatingWidget tittle={title_one} defaultStars={0}/>
-                    <RatingWidget tittle={title_two} defaultStars={false}/>
-                    <RatingWidget tittle={title_three} defaultStars={2}/>
+                    <RatingWidget tittle={title_one} defaultStars={0} setStars={setFirstStars}/>
+                    <RatingWidget tittle={title_two} defaultStars={false} setStars={setSecondStars}/>
+                    <RatingWidget tittle={title_three} defaultStars={2} setStars={setThirdStars}/>
                 </div>
             </div>
         </IntlProvider>
