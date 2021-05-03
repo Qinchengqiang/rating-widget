@@ -25,6 +25,7 @@ export const RatingWidget = ({tittle, defaultStars, setStars}) => {
             setStars(defaultStars);
             setChoose(true);
         }
+    // eslint-disable-next-line
     }, [defaultStars])
 
     return (
@@ -41,7 +42,7 @@ export const RatingWidget = ({tittle, defaultStars, setStars}) => {
                         <span className={`star-logo star-color
                                     ${onMouseStar >= val ? " first-star-active" : ""}
                                     ${choose && activeStars >= val ? " first-star-active" : ""}`}>
-                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"/>
                         </span>
                         </button>)
                     )}
@@ -59,7 +60,7 @@ export const RatingWidget = ({tittle, defaultStars, setStars}) => {
                 {choose ?
                     <h5 className='text-success'>
                         <span className='check-logo'>
-                            <i className="fa fa-check-circle"></i>
+                            <i className="fa fa-check-circle"/>
                         </span>
                         <FormattedMessage id="ratingCheckStart"/>
                         {activeStars}
@@ -67,7 +68,7 @@ export const RatingWidget = ({tittle, defaultStars, setStars}) => {
                     </h5> :
                     <h5 className='text-warning'>
                         <span className='warn-logo'>
-                            <i className="fa fa-exclamation-circle"></i>
+                            <i className="fa fa-exclamation-circle"/>
                         </span>
                         <FormattedMessage id="ratingWarn"/>
                     </h5>
