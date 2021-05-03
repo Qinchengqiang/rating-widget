@@ -20,12 +20,12 @@ export const RatingWidget = ({tittle, defaultStars, setStars}) => {
     }
 
     useEffect(() => {
-        if (defaultStars) {
+        if (defaultStars && !choose) {
             setActiveStars(defaultStars);
             setStars(defaultStars);
             setChoose(true);
         }
-    }, [defaultStars, setStars])
+    }, [defaultStars])
 
     return (
         <>
